@@ -55,7 +55,7 @@ export default function SubPage() {
                     pageData.sliderData.length > 0 && 
                     pageData.sliderData.some((slide: any) => slide.mediaUrl && slide.mediaUrl.trim() !== "");
                     
-  const meta = pageData.pageMeta || {};
+  const meta = pageData.pageMeta || {}; 
 
   return (
     <div className={`w-full flex flex-col ${hasSlider || meta.bgImage ? '' : 'pt-24'}`}>
