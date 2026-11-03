@@ -6,7 +6,7 @@ import BlockRenderer from "@/components/main/BlockRenderer";
 import MainSlider from "@/components/main/MainSlider";
 import TabMenu from "@/components/main/TabMenu";
 import CleaningProducts from "@/components/main/CleaningProducts";
-import KakaoMapLoader from "@/components/main/KakaoMapLoader";
+import Script from 'next/script';
 // 💡 API 통신 함수들을 밖으로 분리
 const fetchSubPageData = async (id: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/pages/${id}`);
@@ -59,9 +59,11 @@ export default function SubPage() {
 
   return (
     <div className={`w-full flex flex-col ${hasSlider || meta.bgImage ? '' : 'pt-24'}`}>
+      <Script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" strategy="beforeInteractive" />
+        <Script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은_자바스크립트_키_입력&libraries=services&autoload=false" strategy="beforeInteractive" />
       {/* 1. 슬라이드 */}
       {hasSlider && <MainSlider slides={pageData.sliderData} />}
-      <KakaoMapLoader />
+
       {/* 2. 배경이미지 헤더 */}
       {!hasSlider && meta.bgImage && (
         <div className="relative w-full h-[400px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${meta.bgImage})` }}>
