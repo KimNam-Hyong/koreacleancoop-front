@@ -6,7 +6,7 @@ import BlockRenderer from "@/components/main/BlockRenderer";
 import MainSlider from "@/components/main/MainSlider";
 import TabMenu from "@/components/main/TabMenu";
 import CleaningProducts from "@/components/main/CleaningProducts";
-
+import KakaoMapLoader from "@/components/main/KakaoMapLoader";
 // 💡 API 통신 함수들을 밖으로 분리
 const fetchSubPageData = async (id: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/pages/${id}`);
@@ -61,7 +61,7 @@ export default function SubPage() {
     <div className={`w-full flex flex-col ${hasSlider || meta.bgImage ? '' : 'pt-24'}`}>
       {/* 1. 슬라이드 */}
       {hasSlider && <MainSlider slides={pageData.sliderData} />}
-      
+      <KakaoMapLoader />
       {/* 2. 배경이미지 헤더 */}
       {!hasSlider && meta.bgImage && (
         <div className="relative w-full h-[400px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${meta.bgImage})` }}>
