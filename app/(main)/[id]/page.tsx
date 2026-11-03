@@ -62,7 +62,7 @@ export default function SubPage() {
       <Script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" strategy="beforeInteractive" />
         <Script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은_자바스크립트_키_입력&libraries=services&autoload=false" strategy="beforeInteractive" />
       {/* 1. 슬라이드 */}
-      {hasSlider && <MainSlider slides={pageData.sliderData} />}
+      {hasSlider && <MainSlider slides={pageData.sliderData} />} 
 
       {/* 2. 배경이미지 헤더 */}
       {!hasSlider && meta.bgImage && (
